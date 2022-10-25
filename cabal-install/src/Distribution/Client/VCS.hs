@@ -404,7 +404,8 @@ vcsGit =
         ]
       where
         git args   = (programInvocation prog args) {progInvokeCwd = Just destdir}
-        cloneArgs  = ["clone", srcuri, destdir]
+        depthArg = "--depth=1"
+        cloneArgs  = ["clone", depthArg, srcuri, destdir]
                      ++ branchArgs ++ verboseArg
         branchArgs = case srpBranch repo of
           Just b  -> ["--branch", b]
